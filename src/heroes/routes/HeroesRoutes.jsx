@@ -11,7 +11,10 @@ export const HeroesRoutes = () => {
                     <Route path="marvel" element={<MarvelPage />} />
                     <Route path="dc" element={<DcPage />} />
                     <Route path="search" element={<SearchPage />} />
-                    <Route path="hero" element={<HeroPage />} />
+                    {/* esto se usa para redireccionar a una pagina cambiate
+                    que va a tener la misma estructura pero diferente contenido
+                    y evita, crear docenas de links */}
+                    <Route path="hero/:id" element={<HeroPage />} />
 
                     <Route path="/" element={<Navigate to={"/marvel"} />} />
                 </Routes>
