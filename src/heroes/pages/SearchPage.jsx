@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 import queryString from 'query-string'
 import { useForm } from "../../hooks/useForm"
 import { HeroCard } from "../components/HeroCard"
+import { getHeroesByName } from "../helpers"
 
 export const SearchPage = () => {
 
@@ -20,14 +21,20 @@ export const SearchPage = () => {
   const query = queryString.parse (location.search)
   /** solo tomaremos la q, y si no viene sera un string vacio */
   const { q = ''} = query
+  const heroes = getHeroesByName(q)
+
+  const showSearch = (q.length===0) //recordemos q esto ya regresa un boolean
+  const showError = (q.length > 0) && (heroes.length === 0)
+
   const { searchText, onInputChange } = useForm({
-    searchText: ''
+    /** esto se hace para mantener, la data de la busqueda al actualizar */
+    searchText: q
   })
 
   const onSearchSumit = (event) => {
     event.preventDefault();
 
-    if(searchText.trim().length <= 1) return;
+    //if(searchText.trim().length <= 1) return;
     /** lo que hacemos es, "redireccionarnos" a la misma ruta, pero
      * con un query parameter, en este caso, lo que el usuario introdujo
      * de busqueda     
@@ -61,19 +68,39 @@ export const SearchPage = () => {
           </button>
         </div>
 
-
         <div className="col-7">
           <h4>Results</h4>
           <hr />
-          <div className="alert alert-primary">
+          <div className="alert alert-primary animate__animated animate__fadeIn" 
+          style={{ display: showSearch ? '' : 'none'}}> 
             Search a hero
           </div>
-          <div className="alert alert-danger">
-            No hero with <b>{ q }</b>
+          <div className="alert alert-danger animate__animated animate__fadeIn" 
+          style={{ display: showError ? '' : 'none'}}>  
+            No hero with <b>{ q }</b> 
           </div>
-          {/* <HeroCard /> */}
+          {
+            heroes.map( hero => (
+              <HeroCard key={hero.id} {...hero}/>
+            ))
+
+          }
         </div>
       </div>
     </>
   )
 }
+
+
+          {/* esta es una opcion pero no muy agradable a la vista y
+          al entendimiento{
+            ( q === '' )
+            ? <div className="alert alert-primary"> Search a hero </div>
+            : (heroes.length === 0 ) && <div className="alert alert-danger"> No hero with <b>{ q }</b> </div>
+          } 
+            otra es jugar con styles del display
+
+            <div className="alert alert-primary" style={{ display: q!== '' ? 'none' : ''}}> 
+            Search a hero
+          </div>
+          */}

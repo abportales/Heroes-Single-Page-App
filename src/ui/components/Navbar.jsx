@@ -1,10 +1,16 @@
+import { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../auth/context/AuthContext';
 
 export const Navbar = () => {
 
+    const {user, logout} = useContext(AuthContext)
+    //console.log({user})
+    
     const navigate = useNavigate()
 
     const onLogout = () => {
+        logout();
         navigate('/login', {
             replace: true
         } )
@@ -50,7 +56,8 @@ export const Navbar = () => {
                 <ul className="navbar-nav ml-auto">
                     
                     <span className="nav-item nav-link text-info">
-                        Abraham
+                        { user?.name 
+                        /** si es nulo no continues */}
                     </span>
                     <button
                         className="nav-item nav-link btn"
