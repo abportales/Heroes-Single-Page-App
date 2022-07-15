@@ -29,3 +29,17 @@ Recordar cuál fue la última ruta visitada para mejorar la experiencia de usuar
 Context
 
 Reducer
+
+# Pruebas realizadas
+
+Pruebas en rutas privadas y públicas
+
+MemoryRouter
+
+Pruebas en nuestro DashboardRouter
+
+Pruebas en el AppRouter
+
+Simular URLs y segmentos
+
+Simular queryParams y queryStrings

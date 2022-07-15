@@ -2,6 +2,7 @@ import { types } from "../types/types";
 
 // const initialState = {
 //     logged: false,
+//     user: null,
 // }
 
 export const authReducer = ( state = {}, action) => {

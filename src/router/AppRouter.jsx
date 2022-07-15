@@ -14,23 +14,7 @@ export const AppRouter = () => {
                         <LoginPage />
                     </PublicRoute>
                 } />
-                {/* Para hacer varias rutas publicas una opcion seria:
-                
-                <Route path="login/*" element={
-                    <PublicRoute>
-                        <Routes>
-                            <Route path="/*" element={<LoginPage />
-                            <Route path="/*" element={<LoginPage />
-                            <Route path="/*" element={<LoginPage />
-                            <Route path="/*" element={<LoginPage />
-                        </Routes>
-                    </PublicRoute>
-                } />
-                */}
 
-                {/* <Route path="/*" element={<HeroesRoutes />} /> 
-                esto se hace para proteger las rutas, se crea un hi order
-                component y se inserta el componente*/}
                 <Route path="/*" element={
                     <PrivateRoute>
                         <HeroesRoutes />
@@ -41,3 +25,21 @@ export const AppRouter = () => {
         </>
     )
 }
+
+{/* Para hacer varias rutas publicas una opcion seria:
+                
+<Route path="login/*" element={
+    <PublicRoute>
+        <Routes>
+            <Route path="/*" element={<LoginPage />
+            <Route path="/*" element={<LoginPage />
+            <Route path="/*" element={<LoginPage />
+            <Route path="/*" element={<LoginPage />
+        </Routes>
+    </PublicRoute>
+} />
+*/}
+
+{/* <Route path="/*" element={<HeroesRoutes />} /> 
+esto se hace para proteger las rutas, se crea un hi order
+component y se inserta el componente*/}
