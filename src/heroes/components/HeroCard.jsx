@@ -12,8 +12,6 @@ const CharacterByHero = ({ alter_ego, characters }) => {
      */
 }
 
-
-
 export const HeroCard = ({
     id,
     superhero,

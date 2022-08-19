@@ -93,7 +93,6 @@ export const SearchPage = () => {
             heroes.map( hero => (
               <HeroCard key={hero.id} {...hero}/>
             ))
-
           }
         </div>
       </div>
@@ -102,15 +101,15 @@ export const SearchPage = () => {
 }
 
 
-          {/* esta es una opcion pero no muy agradable a la vista y
-          al entendimiento{
-            ( q === '' )
-            ? <div className="alert alert-primary"> Search a hero </div>
-            : (heroes.length === 0 ) && <div className="alert alert-danger"> No hero with <b>{ q }</b> </div>
-          } 
-            otra es jugar con styles del display
+{/* esta es una opcion pero no muy agradable a la vista y
+al entendimiento{
+  ( q === '' )
+  ? <div className="alert alert-primary"> Search a hero </div>
+  : (heroes.length === 0 ) && <div className="alert alert-danger"> No hero with <b>{ q }</b> </div>
+} 
+  otra es jugar con styles del display
 
-            <div className="alert alert-primary" style={{ display: q!== '' ? 'none' : ''}}> 
-            Search a hero
-          </div>
-          */}
+  <div className="alert alert-primary" style={{ display: q!== '' ? 'none' : ''}}> 
+  Search a hero
+</div>
+*/}
