@@ -12,7 +12,7 @@ Aquí quiero enfocarme en la funcionalidad de la aplicación suponiendo que esta
 Rutas públicas
 Rutas privadas
 Login y logout - Sin backend aún
-Optimizacion de ruta, para que el usuario la pueda compartir aun si es una busqueda
+Optimización de ruta, para que el usuario la pueda compartir aun si es una busqueda
 Context
 Reducer
 
